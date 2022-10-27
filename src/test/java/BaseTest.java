@@ -15,5 +15,6 @@ public class BaseTest {
     public void tearDown() {
         Selenide.closeWebDriver();
 //        Selenide.closeWindow() - closes a current window (or tab, which is the same)
+        System.out.println("Done");
     }
 }
