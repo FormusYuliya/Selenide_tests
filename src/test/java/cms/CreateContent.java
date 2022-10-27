@@ -1,7 +1,7 @@
-import org.junit.Test;
-import pages.*;
+package cms;
 
-import java.io.File;
+import org.testng.annotations.Test;
+import pages.*;
 
 public class CreateContent extends BaseTest implements SelectCouponTheme, SelectColorScheme {
 
