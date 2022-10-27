@@ -1,4 +1,8 @@
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import org.junit.Test;
+
 import pages.*;
 
 import java.io.File;
@@ -74,7 +78,10 @@ public class CreateContent extends BaseTest implements SelectCouponTheme, Select
     }
 
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     public void createFact() {
+
+
         SignInPage signInPage = new SignInPage();
         signInPage.openPage();
         ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
