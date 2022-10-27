@@ -16,5 +16,4 @@ public class BaseTest {
         Selenide.closeWebDriver();
 //        Selenide.closeWindow() - closes a current window (or tab, which is the same)
     }
-
 }
