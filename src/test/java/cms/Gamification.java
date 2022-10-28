@@ -1,4 +1,6 @@
-import org.junit.Test;
+package cms;
+
+import org.testng.annotations.Test;
 import pages.*;
 
 public class Gamification extends BaseTest implements SelectRaffleTheme, SelectColorScheme {
