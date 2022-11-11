@@ -7,7 +7,7 @@ public class Utils {
 
     public static void waitFor(){
         try {
-            Thread.sleep(4000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -30,8 +30,6 @@ public class Base implements SelectSidebarMenu {
 
     //TODO select project method
 
-    /* Behaviour for basic site elements described below*/
-
     protected void setDataIntoField(SelenideElement element, String text) {
         element.click();
         element.clear();
