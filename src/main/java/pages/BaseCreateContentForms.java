@@ -21,7 +21,8 @@ public class BaseCreateContentForms extends Base implements SelectColorScheme {
     private SelenideElement inputDescriptionField = $(By.cssSelector("textarea[name=\"content.description\"]"));
 
     private SelenideElement saveAndContinueButton = $(By.cssSelector("button.SodyoButton--blue:nth-child(1)"));
-    private SelenideElement saveButton = $(By.cssSelector("button.SodyoButton--dark:nth-child(2)"));
+//    private SelenideElement saveButton = $(By.cssSelector("button.SodyoButton--dark:nth-child(2)"));
+    private SelenideElement saveButton = $(By.xpath("(//button[contains(.,'Save')])[3]"));
 
     private SelenideElement cropButton = $(By.xpath("//button[@type='submit'][contains(.,'Crop')]"));
 

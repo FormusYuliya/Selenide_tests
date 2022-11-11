@@ -2,3 +2,4 @@ shelf/
 .idea/
 build/
 target/
+allure-results/

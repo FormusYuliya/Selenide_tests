@@ -20,6 +20,13 @@ public class Base implements SelectSidebarMenu {
         menuItem.shouldBe(Condition.visible).click();
         return new ContentManagementPage();
     }
+    public CampaignManagementPage openCampaignManagementPage(){
+//        menu.shouldBe(Condition.visible);
+        Utils.waitFor();
+        menuItem = $(By.xpath(SidebarMenuItem.CAMPAIGNS.getLocator()));
+        menuItem.shouldBe(Condition.visible).click();
+        return new CampaignManagementPage();
+    }
 
     //TODO select project method
 

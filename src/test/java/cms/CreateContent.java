@@ -1,7 +1,9 @@
-package cms;
-
-import org.testng.annotations.Test;
+import cms.BaseTest;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import org.testng.annotations.*;
 import pages.*;
+
 
 public class CreateContent extends BaseTest implements SelectCouponTheme, SelectColorScheme {
 
@@ -74,6 +76,7 @@ public class CreateContent extends BaseTest implements SelectCouponTheme, Select
     }
 
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     public void createFact() {
         SignInPage signInPage = new SignInPage();
         signInPage.openPage();
@@ -85,5 +88,39 @@ public class CreateContent extends BaseTest implements SelectCouponTheme, Select
         newFactoid.fillFact("Super title", "A lot of text", "D:\\1.png");
         newFactoid.saveContent();
         Utils.waitFor();
+    }
+
+    @Test
+    public void createCampaign() {
+        SignInPage signInPage = new SignInPage();
+        signInPage.openPage();
+        ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
+        CampaignManagementPage campaignManagementPage = projectDashboardPage.openCampaignManagementPage();
+        campaignManagementPage.createCampaign();
+        CampaignManagementSecondStep step2 = campaignManagementPage.fillFirstStep("Factoid");
+        CampaignManagementThirdStep step3 = step2.selectLatestContent();
+        CampaignManagementFourthStep step4 = step3.nextStep();
+        step4.submitCampaignCreation();
+    }
+
+    @Test
+    public void createFactCampaign() {
+        SignInPage signInPage = new SignInPage();
+        signInPage.openPage();
+        ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
+        ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
+        CreateFactoidPage newFactoid = contentManagementPage.createNewFactoid();
+        newFactoid.fillInfo("Factoid", "Some secription is whitten here");
+//        newFactoid.selectColorScheme(BaseCreateContentForms.colorScheme.Breath_of_dawn);
+        newFactoid.fillFact("Super title", "A lot of text", "D:\\1.png");
+        newFactoid.saveContent();
+        Utils.waitFor();
+
+        CampaignManagementPage campaignManagementPage = projectDashboardPage.openCampaignManagementPage();
+        campaignManagementPage.createCampaign();
+        CampaignManagementSecondStep step2 = campaignManagementPage.fillFirstStep("Factoid "+ Utils.getDate());
+        CampaignManagementThirdStep step3 = step2.selectLatestContent();
+        CampaignManagementFourthStep step4 = step3.nextStep();
+        step4.submitCampaignCreation();
     }
 }

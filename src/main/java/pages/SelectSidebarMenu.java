@@ -13,7 +13,7 @@ public interface SelectSidebarMenu {
         CUSTOM_DASHBOARDS("Custom Dashboards (beta)"),
         CONTENT_MANAGEMENT("Content Management"),
         CONTENT_SETS("Content Sets"),
-        CAMPAIGNS("Campaigns"),
+        CAMPAIGNS("Campaign Management"),
         CAMPAIGN_GROUPS("Campaign Groups"),
         PrivacyManagement("Privacy Management"),
         ADMINISTRATION("Administration"),
