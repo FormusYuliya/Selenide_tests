@@ -70,7 +70,7 @@ public class BaseCreateContentForms extends Base implements SelectColorScheme {
 
     public void saveContent() {
         $(saveButton).scrollIntoView(true);
-        Utils.waitFor();
+        Utils.waitFor(2000);
         saveButton.click();
     }
 

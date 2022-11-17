@@ -113,7 +113,6 @@ public class CreateContent extends BaseTest implements SelectCouponTheme, Select
         newFactoid.fillInfo("Factoid", "Some secription is whitten here");
         newFactoid.fillFact("Super title", "A lot of text", "D:\\1.png");
         newFactoid.saveContent();
-//TODO Think why code does not make marker
         CampaignManagementPage campaignManagementPage = projectDashboardPage.openCampaignManagementPage();
         campaignManagementPage.createCampaign();
         CampaignManagementSecondStep step2 = campaignManagementPage.fillFirstStep("Factoid "+ Utils.getDate());
