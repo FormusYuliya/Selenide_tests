@@ -54,7 +54,7 @@ public class BaseCreateContentForms extends Base implements SelectColorScheme {
     }
 
     public void fillInfo(String contentName, String contentDescription) {
-        setDataIntoField(inputNameField, contentName + " " + Utils.getDate());
+        setDataIntoField(inputNameField, contentName);
         setDataIntoField(inputDescriptionField, contentDescription);
     }
 

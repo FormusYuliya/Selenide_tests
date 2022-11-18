@@ -78,36 +78,4 @@ public class CreateContent extends BaseTest implements SelectCouponTheme, Select
         Utils.waitFor();
     }
 
-
-
-    @Test
-    public void createImmediateActionWithCall(){
-        SignInPage signInPage = new SignInPage();
-        signInPage.openPage();
-        ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
-        ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
-        CreateImmediateAction immediateAction = contentManagementPage.createNewImmediateAction();
-        immediateAction.fillInfo("Immediate action with call ", "Here is the best immediate action ever");
-        immediateAction.addCallAction("+380966564316");
-        immediateAction.saveContent();
-        BaseMethods.createCampaign( projectDashboardPage, "Immediate action with call");
-    }
-
-    @Test
-    public void createImmediateActionWithURL(){
-        String contentName = "Immediate action with URL " + Utils.getDate();
-
-        SignInPage signInPage = new SignInPage();
-        signInPage.openPage();
-        ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
-        ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
-        CreateImmediateAction immediateAction = contentManagementPage.createNewImmediateAction();
-        immediateAction.fillInfo(contentName, "Here is the best immediate action ever");
-        immediateAction.addUrlAction("https://www.w3schools.com/");
-        immediateAction.saveContent();
-        contentManagementPage.verifyContentCreation(contentName);
-        BaseMethods.createCampaign( projectDashboardPage, contentName);
-
-
-    }
 }
