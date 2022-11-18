@@ -1,7 +1,9 @@
-package pages;
+package pages.campaign;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import pages.SelectSidebarMenu;
+
 import static com.codeborne.selenide.Selenide.$;
 
 

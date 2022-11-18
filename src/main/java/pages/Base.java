@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import pages.campaign.CampaignManagementPage;
 
 import static com.codeborne.selenide.Selenide.$;
 

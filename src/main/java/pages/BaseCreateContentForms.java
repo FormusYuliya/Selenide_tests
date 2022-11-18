@@ -22,7 +22,8 @@ public class BaseCreateContentForms extends Base implements SelectColorScheme {
 
     private SelenideElement saveAndContinueButton = $(By.cssSelector("button.SodyoButton--blue:nth-child(1)"));
 //    private SelenideElement saveButton = $(By.cssSelector("button.SodyoButton--dark:nth-child(2)"));
-    private SelenideElement saveButton = $(By.xpath("(//button[contains(.,'Save')])[3]"));
+    //  private SelenideElement saveButton = $(By.xpath("(//button[contains(.,'Save')])[3]"));
+    private SelenideElement saveButton = $(By.cssSelector("button.SodyoButton--dark:nth-child(2)"));
 
     private SelenideElement cropButton = $(By.xpath("//button[@type='submit'][contains(.,'Crop')]"));
 
@@ -70,7 +71,8 @@ public class BaseCreateContentForms extends Base implements SelectColorScheme {
 
     public void saveContent() {
         $(saveButton).scrollIntoView(true);
-        Utils.waitFor(2000);
+        Utils.waitFor(3000);
+        //TODO think about adding cycle that will close modal window instead of timeout
         saveButton.click();
     }
 

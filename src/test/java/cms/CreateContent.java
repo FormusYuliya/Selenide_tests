@@ -1,3 +1,6 @@
+package cms;
+
+import cms.BaseMethods;
 import cms.BaseTest;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -75,49 +78,34 @@ public class CreateContent extends BaseTest implements SelectCouponTheme, Select
         Utils.waitFor();
     }
 
+
+
     @Test
-    @Severity(SeverityLevel.BLOCKER)
-    public void createFact() {
+    public void createImmediateActionWithCall(){
         SignInPage signInPage = new SignInPage();
         signInPage.openPage();
         ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
         ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
-        CreateFactoidPage newFactoid = contentManagementPage.createNewFactoid();
-        newFactoid.fillInfo("Factoid", "Some secription is whitten here");
-//        newFactoid.selectColorScheme(BaseCreateContentForms.colorScheme.Breath_of_dawn);
-        newFactoid.fillFact("Super title", "A lot of text", "D:\\1.png");
-        newFactoid.saveContent();
-        Utils.waitFor();
+        CreateImmediateAction immediateAction = contentManagementPage.createNewImmediateAction();
+        immediateAction.fillInfo("Immediate action with call ", "Here is the best immediate action ever");
+        immediateAction.addCallAction("+380966564316");
+        immediateAction.saveContent();
+        BaseMethods.createCampaign( projectDashboardPage, "Immediate action with call");
     }
 
     @Test
-    public void createCampaign() {
-        SignInPage signInPage = new SignInPage();
-        signInPage.openPage();
-        ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
-        CampaignManagementPage campaignManagementPage = projectDashboardPage.openCampaignManagementPage();
-        campaignManagementPage.createCampaign();
-        CampaignManagementSecondStep step2 = campaignManagementPage.fillFirstStep("Factoid");
-        CampaignManagementThirdStep step3 = step2.selectLatestContent();
-        CampaignManagementFourthStep step4 = step3.nextStep();
-        step4.submitCampaignCreation();
-    }
+    public void createImmediateActionWithURL(){
+        String contentName = "Immediate action with URL " + Utils.getDate();
 
-    @Test
-    public void createFactCampaign() {
         SignInPage signInPage = new SignInPage();
         signInPage.openPage();
         ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
         ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
-        CreateFactoidPage newFactoid = contentManagementPage.createNewFactoid();
-        newFactoid.fillInfo("Factoid", "Some secription is whitten here");
-        newFactoid.fillFact("Super title", "A lot of text", "D:\\1.png");
-        newFactoid.saveContent();
-        CampaignManagementPage campaignManagementPage = projectDashboardPage.openCampaignManagementPage();
-        campaignManagementPage.createCampaign();
-        CampaignManagementSecondStep step2 = campaignManagementPage.fillFirstStep("Factoid "+ Utils.getDate());
-        CampaignManagementThirdStep step3 = step2.selectLatestContent();
-        CampaignManagementFourthStep step4 = step3.nextStep();
-        step4.submitCampaignCreation();
+        CreateImmediateAction immediateAction = contentManagementPage.createNewImmediateAction();
+        immediateAction.fillInfo(contentName, "Here is the best immediate action ever");
+        immediateAction.addUrlAction("https://www.w3schools.com/");
+        immediateAction.saveContent();
+        contentManagementPage.verifyContentCreation(contentName);
+        BaseMethods.createCampaign( projectDashboardPage, contentName);
     }
 }
