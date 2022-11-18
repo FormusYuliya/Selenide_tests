@@ -107,5 +107,7 @@ public class CreateContent extends BaseTest implements SelectCouponTheme, Select
         immediateAction.saveContent();
         contentManagementPage.verifyContentCreation(contentName);
         BaseMethods.createCampaign( projectDashboardPage, contentName);
+
+
     }
 }
