@@ -4,6 +4,8 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 import pages.*;
+import pages.landingPage.CreateFactoidPage;
+import pages.landingPage.CreatePromoPage;
 
 public class CreateLandingPageContent extends BaseTest {
     @Test
@@ -23,6 +25,16 @@ public class CreateLandingPageContent extends BaseTest {
         newFactoid.saveContent();
         contentManagementPage.verifyContentCreation(contentName);
         BaseMethods.createCampaign( projectDashboardPage, contentName);
+    }
+
+    public void createPromoCampaign(){
+        String contentName = "Promo " + Utils.getDate();
+
+        SignInPage signInPage = new SignInPage();
+        signInPage.openPage();
+        ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
+        ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
+        CreatePromoPage newPromo = contentManagementPage.createNewPromo();
     }
 }
 

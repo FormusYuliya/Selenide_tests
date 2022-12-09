@@ -1,11 +1,9 @@
 package cms;
 
-import cms.BaseMethods;
-import cms.BaseTest;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.*;
 import pages.*;
+import pages.coupon.CreateCouponPage;
+import pages.coupon.EditCouponPage;
 
 
 public class CreateContent extends BaseTest implements SelectCouponTheme, SelectColorScheme {

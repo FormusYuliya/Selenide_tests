@@ -5,7 +5,7 @@
 
     <test name="Simple runner">
         <classes>
-            <class name="cms.CreateContent"/>
+            <class name="cms.ImmediateActionTests"/>
 <!--            <methods>-->
 <!--                <include name="invalidLoginTest"/>-->
 <!--                <exclude name="validSignInTest"/>-->

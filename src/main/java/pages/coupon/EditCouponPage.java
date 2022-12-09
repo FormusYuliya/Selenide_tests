@@ -1,11 +1,10 @@
-package pages;
+package pages.coupon;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import pages.Utils;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.switchTo;
 
 public class EditCouponPage extends CreateCouponPage{
 

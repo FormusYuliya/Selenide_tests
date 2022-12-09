@@ -1,7 +1,8 @@
-package pages;
+package pages.landingPage;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import pages.BaseCreateContentForms;
 
 import java.io.File;
 

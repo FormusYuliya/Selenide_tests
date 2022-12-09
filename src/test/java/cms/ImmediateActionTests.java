@@ -51,7 +51,7 @@ public class ImmediateActionTests extends BaseTest {
         ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
         CreateImmediateAction immediateAction = contentManagementPage.createNewImmediateAction();
         immediateAction.fillInfo(contentName, "Here is the best immediate action ever");
-        immediateAction.addNavigationAction("Maidan nezalezhnosti, Kyiv, Ukraine");
+        immediateAction.addNavigationAction("Maijdan nezalezhnosti, Kyiv, Ukraine");
         immediateAction.saveContent();
         contentManagementPage.verifyContentCreation(contentName);
         BaseMethods.createCampaign(projectDashboardPage, contentName);

@@ -2,6 +2,7 @@ package cms;
 
 import org.testng.annotations.Test;
 import pages.*;
+import pages.landingPage.CreateFactoidPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
