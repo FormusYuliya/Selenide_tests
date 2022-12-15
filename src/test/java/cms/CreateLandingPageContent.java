@@ -43,6 +43,25 @@ public class CreateLandingPageContent extends BaseTest {
         contentManagementPage.verifyContentCreation(contentName);
         BaseMethods.createCampaign( projectDashboardPage, contentName);
     }
+
+    @Test
+    @Severity(SeverityLevel.BLOCKER)
+    public void createPromoCampaignWithVideo(){
+        String contentName = "Promo " + Utils.getDate();
+
+        SignInPage signInPage = new SignInPage();
+        signInPage.openPage();
+        ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
+        ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
+        CreatePromoPage newPromo = contentManagementPage.createNewPromo();
+        newPromo.fillInfo(contentName, "Some description is written here");
+        newPromo.fillPromoWithVideo("Super title","A lot of text","D:\\Test Content\\videoplayback.mp4");
+        Utils.waitFor(4000);
+
+//        newPromo.saveContent();
+//        contentManagementPage.verifyContentCreation(contentName);
+//        BaseMethods.createCampaign( projectDashboardPage, contentName);
+    }
 }
 
 

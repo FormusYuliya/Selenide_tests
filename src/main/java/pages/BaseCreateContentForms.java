@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import pages.coupon.SelectColorScheme;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -81,7 +82,7 @@ public class BaseCreateContentForms extends Base implements SelectColorScheme {
         saveAndContinueButton.click();
     }
 
-
+    //TODO Initial form
     //TODO Sponsorship
 
 

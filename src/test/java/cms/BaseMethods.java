@@ -1,13 +1,14 @@
 package cms;
 
-import io.qameta.allure.Allure;
 import pages.*;
 import pages.campaign.CampaignManagementFourthStep;
 import pages.campaign.CampaignManagementPage;
 import pages.campaign.CampaignManagementSecondStep;
 import pages.campaign.CampaignManagementThirdStep;
+import pages.coupon.SelectColorScheme;
+import pages.coupon.SelectCouponTheme;
 
-public class BaseMethods extends BaseTest implements SelectCouponTheme, SelectColorScheme{
+public class BaseMethods extends BaseTest implements SelectCouponTheme, SelectColorScheme {
 
     public static void createCampaign(ProjectDashboardPage projectDashboardPage, String contentType, String contentName ) {
         CampaignManagementPage campaignManagementPage = projectDashboardPage.openCampaignManagementPage();

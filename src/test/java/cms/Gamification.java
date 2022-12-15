@@ -2,6 +2,7 @@ package cms;
 
 import org.testng.annotations.Test;
 import pages.*;
+import pages.coupon.SelectColorScheme;
 
 public class Gamification extends BaseTest implements SelectRaffleTheme, SelectColorScheme {
     @Test

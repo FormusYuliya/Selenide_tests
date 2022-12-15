@@ -3,7 +3,6 @@ package pages.coupon;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.BaseCreateContentForms;
-import pages.SelectCouponTheme;
 
 import static com.codeborne.selenide.Selenide.$;
 

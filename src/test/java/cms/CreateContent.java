@@ -4,6 +4,8 @@ import org.testng.annotations.*;
 import pages.*;
 import pages.coupon.CreateCouponPage;
 import pages.coupon.EditCouponPage;
+import pages.coupon.SelectColorScheme;
+import pages.coupon.SelectCouponTheme;
 
 
 public class CreateContent extends BaseTest implements SelectCouponTheme, SelectColorScheme {
