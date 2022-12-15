@@ -27,6 +27,8 @@ public class CreateLandingPageContent extends BaseTest {
         BaseMethods.createCampaign( projectDashboardPage, contentName);
     }
 
+    @Test
+    @Severity(SeverityLevel.BLOCKER)
     public void createPromoCampaign(){
         String contentName = "Promo " + Utils.getDate();
 
@@ -35,6 +37,11 @@ public class CreateLandingPageContent extends BaseTest {
         ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
         ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
         CreatePromoPage newPromo = contentManagementPage.createNewPromo();
+        newPromo.fillInfo(contentName, "Some description is written here");
+        newPromo.fillPromo("Super title","A lot of text","D:\\1.png");
+        newPromo.saveContent();
+        contentManagementPage.verifyContentCreation(contentName);
+        BaseMethods.createCampaign( projectDashboardPage, contentName);
     }
 }
 

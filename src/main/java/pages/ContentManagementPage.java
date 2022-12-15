@@ -18,7 +18,7 @@ public class ContentManagementPage implements SelectSidebarMenu {
     private SelenideElement factoidContent = $(By.cssSelector("i.icon-fact"));
     private SelenideElement immediateAction = $(By.cssSelector("i.icon-immediate-action"));
     private SelenideElement couponContent = $(By.cssSelector("i.icon-classic-coupon"));
-    private SelenideElement promoContent = $(By.cssSelector("icon-promo"));
+    private SelenideElement promoContent = $(By.cssSelector("i.icon-promo"));
     private SelenideElement raffleContent = $(By.xpath("//div[@class='AddContentModal__content-sub-type__label'][contains(.,'Raffle')]"));
     private SelenideElement firstContentTitle = $(By.xpath("(//div[@class='ContentRow__title'])[1]"));
 
