@@ -4,7 +4,10 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.coupon.SelectColorScheme;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class BaseCreateContentForms extends Base implements SelectColorScheme {
 
@@ -32,6 +35,15 @@ public class BaseCreateContentForms extends Base implements SelectColorScheme {
     protected SelenideElement dropdownSelectTheme = $(By.xpath("(//div[contains(@class,'value-container--has-value css-1hwfws3')])[2]"));
 //    protected SelenideElement dropdownSelectTheme = $(By.xpath("//div[@class='SelectField__select__value-container SelectField__select__value-container--has-value css-1hwfws3'][contains(.,'Centered')]"));
     protected SelenideElement selectTheme;
+
+    private SelenideElement addImageInput = $(By.xpath("//*[@name=\"content.cover\"]/following-sibling::input[@type=\"file\"]"));
+    private SelenideElement addVideoInput = $(By.cssSelector("div.UploadInput>input[accept='video/mp4,video/quicktime,video/x-ms-wmv,video/x-msvideo,video/x-flv']"));
+
+    private SelenideElement addVideoSelector = $(By.xpath("(//i[@class='icon-video'])[1]"));
+    private SelenideElement videoCover = $(By.xpath("//span[contains(.,'UPLOAD')]"));
+    private SelenideElement vimeoCover = $(By.cssSelector("i.icon-vimeo"));
+    private SelenideElement youtubeCover = $(By.cssSelector("i.icon-youtube"));
+    private SelenideElement urlCover = $(By.xpath("//input[@name='content.cover.url']"));
 
     protected void openAccordionTab(SelenideElement element) {
         $(element).scrollIntoView(true).click();
@@ -94,4 +106,28 @@ public class BaseCreateContentForms extends Base implements SelectColorScheme {
         selectTheme.click();
     }
 
+
+    protected void addCover(String coverType, String pathToCover) {
+        switch (coverType){
+            case "IMAGE":
+                uploadImage(addImageInput, pathToCover);
+                break;
+            case "UPLOAD_VIDEO":
+                addVideoSelector.click();
+                videoCover.click();
+                executeJavaScript("document.getElementsByClassName(\"UploadInput__input\")[0].classList.remove(\"UploadInput__input\")");
+                addVideoInput.uploadFile(new File(pathToCover));
+                break;
+            case "VIMEO_VIDEO":
+                addVideoSelector.click();
+                vimeoCover.click();
+                urlCover.setValue(pathToCover);
+                break;
+            case "YOUTUBE_VIDEO":
+                addVideoSelector.click();
+                youtubeCover.click();
+                urlCover.setValue(pathToCover);
+                break;
+        }
+    }
 }

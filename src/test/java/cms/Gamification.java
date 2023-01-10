@@ -13,7 +13,7 @@ public class Gamification extends BaseTest implements SelectRaffleTheme, SelectC
         ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
         CreateRafflePage newRaffle = contentManagementPage.createNewRaffle();
         newRaffle.fillInfo("Raffle", "Raffle content description is written here");
-        newRaffle.setDesign(theme.CALLISTO, colorScheme.Colibri, "D:\\1.png");
+//        newRaffle.setDesign(theme.CALLISTO, colorScheme.Colibri, "D:\\1.png");
         newRaffle.fillRaffle("title", "Confirm", "code");
         newRaffle.fillFinishScreen("Raffle Puffle title");
     }

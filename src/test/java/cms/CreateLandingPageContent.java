@@ -21,7 +21,7 @@ public class CreateLandingPageContent extends BaseTest {
         CreateFactoidPage newFactoid = contentManagementPage.createNewFactoid();
         newFactoid.fillInfo(contentName, "Some description is written here");
 //        newFactoid.setDesign(CreateFactoidPage.factoidTheme.Einstein);
-        newFactoid.fillFact("Super title", "A lot of text", "D:\\1.png");
+        newFactoid.fillFact("Super title", "A lot of text", "IMAGE","D:\\1.png");
         newFactoid.saveContent();
         contentManagementPage.verifyContentCreation(contentName);
         BaseMethods.createCampaign( projectDashboardPage, contentName);
@@ -38,30 +38,12 @@ public class CreateLandingPageContent extends BaseTest {
         ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
         CreatePromoPage newPromo = contentManagementPage.createNewPromo();
         newPromo.fillInfo(contentName, "Some description is written here");
-        newPromo.fillPromo("Super title","A lot of text","D:\\1.png");
+        newPromo.fillPromo("Super title","A lot of text","UPLOAD_VIDEO","D:\\Test Content\\videoplayback.mp4");
         newPromo.saveContent();
         contentManagementPage.verifyContentCreation(contentName);
         BaseMethods.createCampaign( projectDashboardPage, contentName);
     }
 
-    @Test
-    @Severity(SeverityLevel.BLOCKER)
-    public void createPromoCampaignWithVideo(){
-        String contentName = "Promo " + Utils.getDate();
-
-        SignInPage signInPage = new SignInPage();
-        signInPage.openPage();
-        ProjectDashboardPage projectDashboardPage = signInPage.loginAs("admin@sodyo.com", "So123456");
-        ContentManagementPage contentManagementPage = projectDashboardPage.openContentManagementPage();
-        CreatePromoPage newPromo = contentManagementPage.createNewPromo();
-        newPromo.fillInfo(contentName, "Some description is written here");
-        newPromo.fillPromoWithVideo("Super title","A lot of text","D:\\Test Content\\videoplayback.mp4");
-        Utils.waitFor(4000);
-
-//        newPromo.saveContent();
-//        contentManagementPage.verifyContentCreation(contentName);
-//        BaseMethods.createCampaign( projectDashboardPage, contentName);
-    }
 }
 
 

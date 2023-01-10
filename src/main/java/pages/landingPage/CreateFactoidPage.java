@@ -58,12 +58,12 @@ public class CreateFactoidPage extends BaseCreateContentForms {
         openAccordionTab(accordionFact);
     }
 
-    public void fillFact(String title , String fact, String pathToCover){
+    public void fillFact(String title , String fact, String coverType, String pathToCover){
         $(accordionFact).scrollIntoView(true).click();
         openFactAccordion();
         inputFactTitleField.setValue(title);
         inputFactBodyTextarea.setValue(fact);
-        uploadImage(addImageInput, pathToCover);
+        addCover(coverType,pathToCover);
         //TODO add icon select
     }
 
